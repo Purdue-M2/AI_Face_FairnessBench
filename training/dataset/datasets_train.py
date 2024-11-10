@@ -69,6 +69,7 @@ class ImageDataset_Test_Ind(Dataset):
         return {'image': img, 'label': label}
 
 
+
 class ImageDataset_Test(Dataset):
     def __init__(self, csv_file, attribute, owntransforms):
         self.transform = owntransforms
@@ -78,10 +79,10 @@ class ImageDataset_Test(Dataset):
         # Mapping from attribute strings to (intersec_label, age_label) tuples
         # Note: if an attribute doesn't correspond to an age label, we use None
         attribute_to_labels = {
-            'male,asian': (0, None), 'male,white': (1, None), 'male,black': (2, None),
-            'male,others': (3, None), 'nonmale,asian': (4, None), 'nonmale,white': (5, None),
-            'nonmale,black': (6, None), 'nonmale,others': (7, None), 'young': (None, 0),
-            'middle': (None, 1), 'senior': (None, 2), 'ageothers': (None, 3)
+            'nomale,skintone1': (0, None), 'nomale,skintone2': (1, None), 'nomale,skintone3': (2, None),
+            'male,skintone1': (3, None), 'male,skintone2': (4, None),
+            'male,skintone3': (5, None), 'child': (None, 0),
+            'young': (None, 1), 'adult': (None, 2), 'middle': (None, 3),'senior': (None, 4)
         }
 
         # Check if the attribute is valid
@@ -90,27 +91,29 @@ class ImageDataset_Test(Dataset):
         
         intersec_label, age_label = attribute_to_labels[attribute]
 
-        with open(csv_file, newline='') as csvfile:
-            rows = csv.reader(csvfile, delimiter=',')
-            next(rows)  # Skip the header row
-            for row in rows:
-                img_path = row[0]
-                mylabel = int(row[11])
-                
-                # Depending on the attribute, check the corresponding label
-                if intersec_label is not None and int(row[10]) == intersec_label:
-                    self.img.append(img_path)
-                    self.label.append(mylabel)
-                elif age_label is not None and int(row[8]) == age_label:
-                    self.img.append(img_path)
-                    self.label.append(mylabel)
-      
+        # Load the CSV file into a DataFrame
+        df = pd.read_csv(csv_file)
+
+        # Iterate through the DataFrame rows
+        for _, row in df.iterrows():
+            img_path = row['Image Path'] 
+            mylabel = int(row['Target'])  
+
+            # Depending on the attribute, check the corresponding label
+            if intersec_label is not None and int(row['Intersection']) == intersec_label:
+                self.img.append(img_path)
+                self.label.append(mylabel)
+            elif age_label is not None and int(row['Predicted Age']) == age_label:  
+                self.img.append(img_path)
+                self.label.append(mylabel)
+
     def __getitem__(self, index):
         path = self.img[index]
         img = np.array(Image.open(path))
         label = self.label[index]
         augmented = self.transform(image=img)
-        img = augmented['image'] 
+        img = augmented['image']  
+
 
         data_dict = {
             'image': img,
