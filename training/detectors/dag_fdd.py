@@ -1,13 +1,4 @@
-'''
-Reference:
-@inproceedings{rossler2019faceforensics++,
-  title={Faceforensics++: Learning to detect manipulated facial images},
-  author={Rossler, Andreas and Cozzolino, Davide and Verdoliva, Luisa and Riess, Christian and Thies, Justus and Nie{\ss}ner, Matthias},
-  booktitle={Proceedings of the IEEE/CVF international conference on computer vision},
-  pages={1--11},
-  year={2019}
-}
-'''
+
 
 import os
 import datetime
