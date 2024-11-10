@@ -47,8 +47,6 @@ parser.add_argument("--dataset_type", type=str, default='no_pair',
 # in intersectional attribute skintone1 represent Light (tone1-3)
 parser.add_argument("--inter_attribute", type=str,
                     default='nomale,skintone1-nomale,skintone2-nomale,skintone3-male,skintone1-male,skintone2-male,skintone3-child-young-adult-middle-senior')
-parser.add_argument("--single_attribute", type=str,
-                    default='young-middle-senior-ageothers')
 parser.add_argument("--test_datapath", type=str,
                         default='../dataset/test.csv', help="test data path")
 parser.add_argument("--savepath", type=str,
