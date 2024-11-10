@@ -1,13 +1,4 @@
-'''
 
-Reference:
-@article{yan2023ucf,
-  title={UCF: Uncovering Common Features for Generalizable Deepfake Detection},
-  author={Yan, Zhiyuan and Zhang, Yong and Fan, Yanbo and Wu, Baoyuan},
-  journal={arXiv preprint arXiv:2304.13949},
-  year={2023}
-}
-'''
 
 import os
 import datetime
