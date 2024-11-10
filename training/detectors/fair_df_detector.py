@@ -1,12 +1,4 @@
-'''
-Reference:
-@inproceedings{lin2024preserving,
-  title={Preserving Fairness Generalization in Deepfake Detection},
-  author={Lin, Li and He, Xinan and Ju, Yan and Wang, Xin and Ding, Feng and Hu, Shu},
-  booktitle={CVPR},
-  year={2024}
-}
-'''
+
 
 
 import logging
