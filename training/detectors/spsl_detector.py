@@ -1,15 +1,4 @@
-'''
 
-Reference:
-@inproceedings{liu2021spatial,
-  title={Spatial-phase shallow learning: rethinking face forgery detection in frequency domain},
-  author={Liu, Honggu and Li, Xiaodan and Zhou, Wenbo and Chen, Yuefeng and He, Yuan and Xue, Hui and Zhang, Weiming and Yu, Nenghai},
-  booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition},
-  pages={772--781},
-  year={2021}
-}
-
-'''
 
 import os
 import datetime
