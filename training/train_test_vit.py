@@ -45,11 +45,9 @@ parser.add_argument("--dataset_type", type=str, default='no_pair',
                     help="detector name[pair,no_pair]")
 
 #################################test##############################
-
+# in intersectional attribute skintone1 represent Light (tone1-3)
 parser.add_argument("--inter_attribute", type=str,
-                    default='male,asian-male,white-male,black-male,others-nonmale,asian-nonmale,white-nonmale,black-nonmale,others-young-middle-senior-ageothers')
-parser.add_argument("--single_attribute", type=str,
-                    default='young-middle-senior-ageothers')
+                    default='nomale,skintone1-nomale,skintone2-nomale,skintone3-male,skintone1-male,skintone2-male,skintone3-child-young-adult-middle-senior')
 parser.add_argument("--test_datapath", type=str,
                         default='../dataset/test.csv', help="test data path")
 parser.add_argument("--savepath", type=str,
@@ -207,7 +205,7 @@ def train(model, criterion, optimizer, scheduler, num_epochs, start_epoch):
 
                 print()
                 # print('-' * 10)
-            acc_fairness(args.savepath + '/', [['male', 'nonmale'], ['asian', 'white', 'black', 'others'],['young', 'middle','senior','ageothers']])
+            acc_fairness(args.savepath + '/', [['nomale', 'male'], ['skintone1', 'skintone2', 'skintone3'],['child', 'young', 'adult','middle','senior']])
             cleanup_npy_files(args.savepath)
 
     return model, epoch
@@ -251,9 +249,9 @@ def main():
         optimizer, step_size=60, gamma=0.9)
 
     model, epoch = train(model, criterion, optimizer,
-                         exp_lr_scheduler, num_epochs=5, start_epoch=start_epoch)
+                         exp_lr_scheduler, num_epochs=10, start_epoch=start_epoch)
 
-    if epoch == 4:
+    if epoch == 9:
         print("training finished!")
         exit()
 
