@@ -1,22 +1,14 @@
 # AI-Face-FairnessBench
-This repository is the official implementation of our paper [AI-Face: A Million-Scale Demographically Annotated AI-Generated Face Dataset and Fairness Benchmark](https://arxiv.org/abs/2406.00783)
-
-<figure>
-  <img src="assets/dataset_overview.png" alt="Dataset Overview">
-</figure>
 
 ## License
 The AI-Face Dataset is licensed under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode)
-## Download
-If you would like to access the AI-Face Dataset, please download and sign the [EULA](https://drive.google.com/file/d/1uiAuNHvYmn1kggVCaDmFbndESlGyMN-X/view?usp=sharing). Please upload the signed EULA to the [Google Form](https://forms.gle/Wci1hsZCz6Rgnvw57) and fill the required details. Once the form is approved, the download link will be sent to you.
-If you have any questions, please send an email to lin1785@purdue.edu, hu968@purdue.edu
 
 ## 1. Installation
 
 You can run the following script to configure the necessary environment:
 
 ```
-cd AI-Face-FairnessBench
+cd AI_Face_FairnessBench
 conda create -n FairnessBench python=3.9.0
 conda activate FairnessBench
 pip install -r requirements.txt
@@ -29,30 +21,16 @@ train.csv and test.csv is formatted:
 | Column                     | Description                                                         |
 |----------------------------|---------------------------------------------------------------------|
 | Image Path                 | Path to the image file                                              |
-| Uncertainty Score Gender   | Uncertainty score for gender annotation                             |
-| Uncertainty Score Age      | Uncertainty score for age annotation                                |
-| Uncertainty Score Race     | Uncertainty score for race annotation                               |
-| Ground Truth Gender        | Gender label: 1 - Male, 0 - Female                                  |
-| Ground Truth Age           | Age label: 0 - Young, 1 - Middle-aged, 2 - Senior, 3 - Others       |
-| Ground Truth Race          | Race label: 0 - Asian, 1 - White, 2 - Black, 3 - Others             |
-| Intersection               |  0-(Male,Asian), 1-(Male,White), 2-(Male,Black), 3-(Male,Others), 4-(Female,Asian), 5-(Female,White), 6-(Female,Black), 7-(Female,Others)|
+| Gender                     | Gender label: 1 - Male, 0 - Female                                  |
+| Age                        | Age label: 0 - Child, 1 - Youth, 3 - Adult, 4 - Middle-aged, 5-Senior|
+| Skin Tone                  | Skin Tone label: Monk Skin Tone Scale             |
+| Intersection               | 0-(Male,Light), 1-(Male,Medium), 2-(Male,Dark), 3-(Female,Light), 4-(Female,Medium), 5-(Female,Dark)|
 | Target                     | Label indicating real (0) or fake (1) image                         |
 
 
 #### 📝 Note 
 
-Our AI-Face dataset contains face images from four deepfake video datasets: [FF++](https://github.com/ondyari/FaceForensics), [Celeb-DF](https://github.com/yuezunli/celeb-deepfakeforensics), [DFD](https://ai.googleblog.com/2019/09/contributing-data-to-deepfake-detection.html) and [DFDC](https://ai.facebook.com/datasets/dfdc/). You can access these datasets with demongraphic annotaions from [paper](https://arxiv.org/pdf/2208.05845.pdf) through the link provided in our [Fairness-Generalization](https://github.com/Purdue-M2/Fairness-Generalization) repository. Please be aware that we __re-annotated demographic attributes for those four deepfake video datasets in our AI-Face dataset__, and the demographic annotations are provided with uncertainty score formatted in a CSV file as described above. The annotations you can acquire through our [Fairness-Generalization](https://github.com/Purdue-M2/Fairness-Generalization) are different with those provided in our AI-Face dataset, and they are __not__ accompained with uncertianty scores.
-
-After you get the download link for the AI-Face dataset, you will see `part1.tar` and `part2.tar`. Please download both parts if you are going to use the entire dataset. They are uploaded in two parts because One Drive only allows files not larger than 250GB.
-
-### Requirements
-Ensure your device has **300GB** of available space for this dataset.
-
-### Instructions
-
-1. Download `part1.tar` and `part2.tar`.
-2. Untar both files.
-3. Organize the data as shown below:
+Dataset will be released soon.
    
 ```
 AI-Face Dataset
@@ -109,13 +87,3 @@ To train ViT-b/16 and UnivFD, please run  [`train_test_vit.py`](training/train_t
 | PG-FDD    |  [fair_df_detector.py](./training/detectors/fair_df_detector.py) | [Preserving Fairness Generalization in Deepfake Detection](https://arxiv.org/abs/2402.17229) | 
 
 
-If you use the AI-face dataset in your research, please cite our paper as:
-
-```bash
-@article{lin2024aiface,
-  title={AI-Face: A Million-Scale Demographically Annotated AI-Generated Face Dataset and Fairness Benchmark},
-  author={Li Lin and Santosh and Xin Wang and Shu Hu},
-  journal={arXiv preprint arXiv:2406.00783},
-  year={2024}
-}
-```
