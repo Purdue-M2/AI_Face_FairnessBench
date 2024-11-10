@@ -1,15 +1,4 @@
-'''
 
-Reference:
-@inproceedings{tan2019efficientnet,
-  title={Efficientnet: Rethinking model scaling for convolutional neural networks},
-  author={Tan, Mingxing and Le, Quoc},
-  booktitle={International conference on machine learning},
-  pages={6105--6114},
-  year={2019},
-  organization={PMLR}
-}
-'''
 
 import os
 import datetime
