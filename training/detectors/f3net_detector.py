@@ -1,19 +1,4 @@
-'''
 
-Reference:
-@inproceedings{qian2020thinking,
-  title={Thinking in frequency: Face forgery detection by mining frequency-aware clues},
-  author={Qian, Yuyang and Yin, Guojun and Sheng, Lu and Chen, Zixuan and Shao, Jing},
-  booktitle={European conference on computer vision},
-  pages={86--103},
-  year={2020},
-  organization={Springer}
-}
-
-GitHub Reference:
-https://github.com/yyk-wew/F3Net
-
-'''
 
 import os
 import datetime
