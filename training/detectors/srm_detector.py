@@ -1,15 +1,4 @@
-'''
 
-Reference:
-@inproceedings{luo2021generalizing,
-  title={Generalizing face forgery detection with high-frequency features},
-  author={Luo, Yuchen and Zhang, Yong and Yan, Junchi and Liu, Wei},
-  booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition},
-  pages={16317--16326},
-  year={2021}
-}
-
-'''
 
 import os
 import datetime
