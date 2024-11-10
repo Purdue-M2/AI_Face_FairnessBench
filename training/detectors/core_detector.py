@@ -1,17 +1,4 @@
-'''
 
-Reference:
-@inproceedings{ni2022core,
-  title={Core: Consistent representation learning for face forgery detection},
-  author={Ni, Yunsheng and Meng, Depu and Yu, Changqian and Quan, Chengbin and Ren, Dongchun and Zhao, Youjian},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  pages={12--21},
-  year={2022}
-}
-
-GitHub Reference:
-https://github.com/nii-yamagishilab/Capsule-Forensics-v2
-'''
 
 import os
 import datetime
