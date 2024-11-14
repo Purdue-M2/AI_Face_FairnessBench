@@ -1,7 +1,14 @@
 # AI-Face-FairnessBench
 
+<figure>
+  <img src="assets/dataset_overview.png" alt="Dataset Overview">
+</figure>
+
 ## License
 The AI-Face Dataset is licensed under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode)
+
+## Download
+The dataset will be released soon along side the EULA. If you would like to access the AI-Face Dataset, please upload the signed EULA to the Google form that we will provide soon, the download link will be sent to you.
 
 ## 1. Installation
 
